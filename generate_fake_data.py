@@ -1,69 +1,49 @@
 import pandas as pd
 import numpy as np
 
-def generate_diabetes_dataset(num_rows=5000):
-    """
-    Generates a synthetic dataset for diabetes prediction.
+# Function to generate random data for non-diabetic rows
+def generate_non_diabetic_row():
+    return {
+        'calories_wk': np.random.randint(1500, 4500),
+        'hrs_exercise_wk': np.random.uniform(0.5, 7),
+        'exercise_intensity': np.random.choice(['low', 'medium', 'high']),
+        'annual_income': np.random.randint(25000, 150000),
+        'num_children': np.random.randint(0, 5),
+        'weight': np.random.uniform(40, 150),
+        'is_diabetic': 0
+    }
 
-    Args:
-        num_rows (int): The number of rows to generate in the dataset.  Defaults to 5000.
+# Function to generate data for diabetic rows with specific conditions
+def generate_diabetic_row():
+    return {
+        'calories_wk': np.random.randint(3500, 6000),
+        'hrs_exercise_wk': np.random.uniform(0.1, 2), # Low exercise
+        'exercise_intensity': np.random.choice(['low', 'medium']),
+        'annual_income': np.random.randint(15000, 24999),
+        'num_children': np.random.randint(0, 5),
+        'weight': np.random.uniform(240, 300), # High weight
+        'is_diabetic': 1
+    }
 
-    Returns:
-        pandas.DataFrame: A DataFrame containing the generated dataset.
-    """
+# Initialize DataFrame
+data = []
 
-    np.random.seed(42)  # for reproducibility
+# Generate the first 3000 random rows with a mix of diabetic and non-diabetic people
+for _ in range(3000):
+    if np.random.rand() < 0.5:  # Randomly decide if the person is diabetic or not
+        data.append(generate_non_diabetic_row())
+    else:
+        data.append(generate_diabetic_row())
 
-    # Generate realistic data for each attribute.  Distributions are chosen to be
-    # somewhat plausible for the real world.
-    calories_wk = np.random.normal(loc=2000, scale=500, size=num_rows)  # Average 2000 calories/week, std dev 500
-    calories_wk = np.clip(calories_wk, 500, 4000)  # Ensure calorie intake is within a reasonable range
+# Generate the last 2000 rows with specific conditions for diabetes
+for _ in range(2000):
+    data.append(generate_diabetic_row())
 
-    hrs_exercise_wk = np.random.normal(loc=3, scale=2, size=num_rows) # Average 3 hrs/week, std dev 2
-    hrs_exercise_wk = np.clip(hrs_exercise_wk, 0, 10)
+# Convert list of dictionaries to DataFrame and shuffle it
+df = pd.DataFrame(data)
+df_shuffled = df.sample(frac=1).reset_index(drop=True)
 
-    exercise_intensity = np.random.choice(['low', 'moderate', 'high'], size=num_rows, p=[0.4, 0.4, 0.2])
+# Save the dataframe to a csv file
+df_shuffled.to_csv('diabetes_dataset.csv', index=False)
 
-    annual_income = np.random.normal(loc=60000, scale=30000, size=num_rows)
-    annual_income = np.clip(annual_income, 20000, 150000) # Reasonable income range
-
-    num_children = np.random.poisson(lam=1, size=num_rows)  # Average 1 child
-    num_children = np.clip(num_children, 0, 5)
-
-    weight = np.random.normal(loc=180, scale=30, size=num_rows) # Average 180 lbs, std dev 30
-    weight = np.clip(weight, 100, 350)  # Reasonable weight range
-
-    # Generate is_diabetic based on the other attributes.  This creates a dependency
-    # between the features and the target variable.  We use a probabilistic approach.
-    # This isn't perfect, and can be improved with more sophisticated modeling,
-    # but it's enough for a basic training dataset.
-    risk_score = (calories_wk / 2500) + (10 - hrs_exercise_wk) + (weight / 200) + (num_children * 2) - (annual_income / 100000)
-
-    # Scale the risk score to get probabilities.
-    probabilities = 1 / (1 + np.exp(-risk_score)) # Sigmoid function
-    is_diabetic = np.random.binomial(1, probabilities, size=num_rows)
-
-    # Create the DataFrame
-    df = pd.DataFrame({
-        'calories_wk': calories_wk,
-        'hrs_exercise_wk': hrs_exercise_wk,
-        'exercise_intensity': exercise_intensity,
-        'annual_income': annual_income,
-        'num_children': num_children,
-        'weight': weight,
-        'is_diabetic': is_diabetic
-    })
-
-    return df
-
-
-if __name__ == '__main__':
-    # Generate the dataset
-    diabetes_data = generate_diabetes_dataset()
-
-    # Print the first 5 rows of the dataset
-    print(diabetes_data.head())
-
-    # Save the dataset to a CSV file
-    diabetes_data.to_csv('diabetes_dataset.csv', index=False)
-    print("Dataset saved to diabetes_dataset.csv")
+print("Dataset with 5000 rows has been created.")
