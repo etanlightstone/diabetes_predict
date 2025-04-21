@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/9928e1e3e3a94b24b8de04b56e5926ad/artifacts
+end_time: 1745270028646
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 9928e1e3e3a94b24b8de04b56e5926ad
+run_name: classy-hound-406
+run_uuid: 9928e1e3e3a94b24b8de04b56e5926ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745270024979
+status: 4
+tags: []
+user_id: etan.lightstone

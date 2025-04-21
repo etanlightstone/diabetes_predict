@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/be7101df3bae4e5a87a3cf80d0bb8d5f/artifacts
+end_time: 1745269558814
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: be7101df3bae4e5a87a3cf80d0bb8d5f
+run_name: funny-pug-780
+run_uuid: be7101df3bae4e5a87a3cf80d0bb8d5f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269552317
+status: 3
+tags: []
+user_id: etan.lightstone

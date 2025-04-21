@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/a2c04f1052af46488f9e26e474babfa5/artifacts
+end_time: 1745269972878
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: a2c04f1052af46488f9e26e474babfa5
+run_name: chill-trout-779
+run_uuid: a2c04f1052af46488f9e26e474babfa5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269955472
+status: 4
+tags: []
+user_id: etan.lightstone

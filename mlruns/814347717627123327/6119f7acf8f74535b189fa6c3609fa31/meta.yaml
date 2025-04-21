@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/6119f7acf8f74535b189fa6c3609fa31/artifacts
+end_time: 1745269951902
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 6119f7acf8f74535b189fa6c3609fa31
+run_name: funny-robin-107
+run_uuid: 6119f7acf8f74535b189fa6c3609fa31
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269943169
+status: 3
+tags: []
+user_id: etan.lightstone

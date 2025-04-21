@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/b9ceef50de0345c5a529de70656935ef/artifacts
+end_time: 1745270020278
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: b9ceef50de0345c5a529de70656935ef
+run_name: resilient-skunk-126
+run_uuid: b9ceef50de0345c5a529de70656935ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745270014763
+status: 4
+tags: []
+user_id: etan.lightstone

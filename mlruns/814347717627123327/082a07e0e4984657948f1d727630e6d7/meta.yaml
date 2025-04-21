@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/082a07e0e4984657948f1d727630e6d7/artifacts
+end_time: 1745269336080
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 082a07e0e4984657948f1d727630e6d7
+run_name: enchanting-trout-867
+run_uuid: 082a07e0e4984657948f1d727630e6d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269324377
+status: 3
+tags: []
+user_id: etan.lightstone

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/5247ad7ef9f449919d704101744b8e7f/artifacts
+end_time: 1745269026675
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 5247ad7ef9f449919d704101744b8e7f
+run_name: suave-grouse-987
+run_uuid: 5247ad7ef9f449919d704101744b8e7f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269021127
+status: 3
+tags: []
+user_id: etan.lightstone

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/34b3d88172ee4a739a355387d465e6d6/artifacts
+end_time: 1745270049702
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 34b3d88172ee4a739a355387d465e6d6
+run_name: rumbling-penguin-994
+run_uuid: 34b3d88172ee4a739a355387d465e6d6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745270042605
+status: 4
+tags: []
+user_id: etan.lightstone

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/2ec97ea05c404d0db58dd07e166e3154/artifacts
+end_time: 1745270039910
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 2ec97ea05c404d0db58dd07e166e3154
+run_name: crawling-horse-780
+run_uuid: 2ec97ea05c404d0db58dd07e166e3154
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745270037293
+status: 4
+tags: []
+user_id: etan.lightstone

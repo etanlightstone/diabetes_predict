@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/0145429e6c7544b686f8fae40d402d5f/artifacts
+end_time: 1745269494640
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 0145429e6c7544b686f8fae40d402d5f
+run_name: fortunate-bee-318
+run_uuid: 0145429e6c7544b686f8fae40d402d5f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269488103
+status: 3
+tags: []
+user_id: etan.lightstone

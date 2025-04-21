@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/2e14e7cb1139402e91319c21c024d2f3/artifacts
+end_time: 1745269891938
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 2e14e7cb1139402e91319c21c024d2f3
+run_name: adorable-seal-467
+run_uuid: 2e14e7cb1139402e91319c21c024d2f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269878974
+status: 3
+tags: []
+user_id: etan.lightstone

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/4ef5d36d981b46dcb0bd0841966cdd58/artifacts
+end_time: 1745270106729
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 4ef5d36d981b46dcb0bd0841966cdd58
+run_name: nimble-pig-532
+run_uuid: 4ef5d36d981b46dcb0bd0841966cdd58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745270100439
+status: 3
+tags: []
+user_id: etan.lightstone

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/73330c1842b94202a6d1ba5c4aa55fcc/artifacts
+end_time: 1745269473661
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: 73330c1842b94202a6d1ba5c4aa55fcc
+run_name: upbeat-gnu-558
+run_uuid: 73330c1842b94202a6d1ba5c4aa55fcc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269467080
+status: 3
+tags: []
+user_id: etan.lightstone

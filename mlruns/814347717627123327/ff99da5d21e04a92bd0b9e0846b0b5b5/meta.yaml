@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/ff99da5d21e04a92bd0b9e0846b0b5b5/artifacts
+end_time: 1745269484824
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: ff99da5d21e04a92bd0b9e0846b0b5b5
+run_name: thundering-mule-502
+run_uuid: ff99da5d21e04a92bd0b9e0846b0b5b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269478285
+status: 3
+tags: []
+user_id: etan.lightstone

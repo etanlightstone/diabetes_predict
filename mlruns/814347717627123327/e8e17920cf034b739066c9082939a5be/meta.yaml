@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/etan.lightstone/Documents/code_projects/diabetes_predict/mlruns/814347717627123327/e8e17920cf034b739066c9082939a5be/artifacts
+end_time: 1745269850277
+entry_point_name: ''
+experiment_id: '814347717627123327'
+lifecycle_stage: active
+run_id: e8e17920cf034b739066c9082939a5be
+run_name: masked-steed-984
+run_uuid: e8e17920cf034b739066c9082939a5be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745269845547
+status: 3
+tags: []
+user_id: etan.lightstone
