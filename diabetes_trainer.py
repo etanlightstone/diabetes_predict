@@ -96,7 +96,7 @@ def train_model(model, train_loader, val_loader, optimizer, criterion, epochs, d
 def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Train a diabetes prediction model")
-    parser.add_argument("--epochs", type=int, default=60, help="Number of training epochs")
+    parser.add_argument("--epochs", type=int, default=30, help="Number of training epochs")
     parser.add_argument("--batch_size", type=int, default=32, help="Batch size for training")
     parser.add_argument("--input_features", type=int, default=6, help="Number of input features")
     parser.add_argument("--hidden_dim1", type=int, default=32, help="Size of first hidden layer")
