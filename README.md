@@ -53,11 +53,6 @@ python generate_fake_data.py
 ```
 This will overwrite the existing `diabetes_dataset.csv` file.
 
-Alternatively, you can run this as a Domino job:
-```bash
-# Example: Replace with actual username and project name if different
-domino run --project-name diabetes-predict --user-name etan_lightstone --title "Generate Synthetic Data" "python generate_fake_data.py"
-```
 
 *(Note: The Domino command above is illustrative. You might need to adjust it based on your specific Domino CLI setup and project configuration in `domino_project_settings.md`)*
 
@@ -80,13 +75,6 @@ You can adjust the hyperparameters using command-line arguments. See the script 
 ```bash
 python diabetes_trainer.py --help
 ```
-
-**To run training as a Domino job:**
-```bash
-# Example: Replace with actual username and project name if different
-domino run --project-name diabetes-predict --user-name etan_lightstone --title "Train Diabetes Model" "python diabetes_trainer.py --epochs 60 --batch_size 32"
-```
-*(Note: The Domino command above is illustrative. You might need to adjust it based on your specific Domino CLI setup and project configuration in `domino_project_settings.md`. Ensure MLflow is configured correctly within your Domino environment to track runs.)*
 
 ## Inference
 
