@@ -45,11 +45,11 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
     probability = prediction.item()
     is_diabetic = probability > 0.5
     
-    return probability, is_diabetic
+    return {"probability": probability, "is_diabetic":is_diabetic}
 
 if __name__ == "__main__":
     # Example usage
-    probability, is_diabetic = predict_diabetes(
+    result = predict_diabetes(
         calories_wk=10000,
         hrs_exercise_wk=2.5,
         exercise_intensity=0.6,
@@ -58,5 +58,5 @@ if __name__ == "__main__":
         weight=180
     )
     
-    print(f"Diabetes probability: {probability:.4f}")
-    print(f"Predicted diabetic: {is_diabetic}")
+    print(f"Diabetes probability: {result['probability']:.4f}")
+    print(f"Predicted diabetic: {result['is_diabetic']}")
