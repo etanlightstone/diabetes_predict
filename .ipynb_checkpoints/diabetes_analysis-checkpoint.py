@@ -9,7 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(
     title="Diabetes Dataset Analysis API",
     description="API for analyzing a diabetes dataset for model training",
-    version="1.0.0"
+    version="1.0.0",
+    root_path="/apps-internal/680c05e23917d068b39dee86" 
 )
 
 # Add CORS middleware
