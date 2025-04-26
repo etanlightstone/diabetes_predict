@@ -82,4 +82,24 @@ The `diabetes_inference.py` script is intended for loading a trained model and m
 
 ## MLflow Tracking
 
-The training script integrates with MLflow to track experiments. Ensure your MLflow tracking server is configured correctly (either locally or within your Domino environment) to capture the runs. Model artifacts, parameters, and metrics will be logged, allowing for comparison and management of different training runs. 
+The training script integrates with MLflow to track experiments. Ensure your MLflow tracking server is configured correctly (either locally or within your Domino environment) to capture the runs. Model artifacts, parameters, and metrics will be logged, allowing for comparison and management of different training runs.
+
+## Diabetes Analysis MCP Server
+
+The `diabetes_analysis_mcp.py` script runs a FastAPI application that acts as an MCP (Model Context Protocol) server. This server provides various API endpoints for analyzing the diabetes dataset (`diabetes_dataset.csv`). It allows programmatic access to dataset information, statistics, correlations, and visualizations.
+
+To run the MCP server:
+```bash
+uvicorn diabetes_analysis_mcp:app --reload --port 8888
+```
+The API documentation (Swagger UI) will be available at `http://localhost:8888/docs`.
+
+## Chat Application
+
+The `app.py` script runs a simple Flask web application that provides a chat interface. This application interacts with a chat agent (defined in `chat_agent.py`) to process user messages and provide responses. It serves the frontend files located in the `chat_ui` directory.
+
+To run the chat application:
+```bash
+python app.py
+```
+The application will be available at `http://127.0.0.1:5000/`. Ensure the `chat_ui` directory exists with `index.html`, `script.js`, and `style.css`.

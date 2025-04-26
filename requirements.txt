@@ -2,4 +2,5 @@ pandas
 numpy
 torch
 scikit-learn
-mlflow 
+mlflow
+Flask
