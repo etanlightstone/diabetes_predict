@@ -160,7 +160,7 @@ def main():
         )
         
         criterion = nn.BCELoss()
-        optimizer = optim.Adam(model.parameters(), lr=args.learning_rate)
+        optimizer = optim.Adam(model.parameters(), lr=args.learning_rate, weight_decay=0.0001)
         
         # Train the model
         val_loss, accuracy = train_model(
