@@ -105,5 +105,5 @@ def alternativeMain():
     print(f"Predicted diabetic: {result['is_diabetic']}")
 
 if __name__ == "__main__":
-    #main()
-    alternativeMain()
+    main()
+    #alternativeMain()
