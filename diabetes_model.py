@@ -25,7 +25,7 @@ class DiabetesModel(nn.Module):
 
         # Dropout layer (optional, helps prevent overfitting)
         # Randomly sets a fraction of input units to 0 during training
-        self.dropout = nn.Dropout(0.2) # 20% dropout probability
+        self.dropout = nn.Dropout(0.3) # 30% dropout probability
 
     def forward(self, x):
         """
