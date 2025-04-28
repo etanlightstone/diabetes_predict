@@ -48,15 +48,28 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
     return {"probability": probability, "is_diabetic":is_diabetic}
 
 if __name__ == "__main__":
-    # Example usage
-    result = predict_diabetes(
-        calories_wk=10000,
-        hrs_exercise_wk=2.5,
-        exercise_intensity=0.6,
-        annual_income=50000,
-        num_children=1,
-        weight=180
-    )
-    
-    print(f"Diabetes probability: {result['probability']:.4f}")
-    print(f"Predicted diabetic: {result['is_diabetic']}")
+    import argparse
+
+    def main(calories_wk, hrs_exercise_wk, exercise_intensity, annual_income, num_children, weight):
+        result = predict_diabetes(
+            calories_wk=calories_wk,
+            hrs_exercise_wk=hrs_exercise_wk,
+            exercise_intensity=exercise_intensity,
+            annual_income=annual_income,
+            num_children=num_children,
+            weight=weight
+        )
+        
+        print(f"Diabetes probability: {result['probability']:.4f}")
+        print(f"Predicted diabetic: {result['is_diabetic']}")
+
+    parser = argparse.ArgumentParser(description="Make a diabetes prediction using the trained neural network model.")
+    parser.add_argument("--calories_wk", type=float, required=True, help="Weekly calorie consumption")
+    parser.add_argument("--hrs_exercise_wk", type=float, required=True, help="Hours of exercise per week")
+    parser.add_argument("--exercise_intensity", type=float, required=True, help="Exercise intensity (0-1)")
+    parser.add_argument("--annual_income", type=float, required=True, help="Annual income")
+    parser.add_argument("--num_children", type=int, required=True, help="Number of children")
+    parser.add_argument("--weight", type=float, required=True, help="Weight in pounds")
+
+    args = parser.parse_args()
+    main(args.calories_wk, args.hrs_exercise_wk, args.exercise_intensity, args.annual_income, args.num_children, args.weight)

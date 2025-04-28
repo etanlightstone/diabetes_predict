@@ -90,7 +90,9 @@ The `diabetes_analysis_mcp.py` script runs a FastAPI application that acts as an
 
 To run the MCP server:
 ```bash
-uvicorn diabetes_analysis_mcp:app --reload --port 8888
+python diabetes_analysis_mcp.py
+# Above basically runs this:
+# uvicorn diabetes_analysis_mcp:app --reload --port 8888
 ```
 The API documentation (Swagger UI) will be available at `http://localhost:8888/docs`.
 
@@ -100,6 +102,7 @@ The `app.py` script runs a simple Flask web application that provides a chat int
 
 To run the chat application:
 ```bash
+export OPENAI_API_KEY=<your api key>
 python app.py
 ```
 The application will be available at `http://127.0.0.1:5000/`. Ensure the `chat_ui` directory exists with `index.html`, `script.js`, and `style.css`.
