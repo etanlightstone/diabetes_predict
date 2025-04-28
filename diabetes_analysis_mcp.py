@@ -162,8 +162,21 @@ async def get_feature_boxplot(feature: str):
     }
 
 @app.get("/feature/comparison")
-async def get_feature_comparison(feature1: str, feature2: str, diabetic_only: bool = False):
-    """Get data for comparing two features, optionally filtered by diabetic status"""
+async def get_feature_comparison(
+    feature1: str, 
+    feature2: str, 
+    filter_column: Optional[str] = None, 
+    filter_value: Optional[str] = None
+):
+    """
+    Get data for comparing two features, optionally filtered by any column and value
+    
+    Parameters:
+    - feature1: First feature to compare
+    - feature2: Second feature to compare
+    - filter_column: Optional column to filter on (e.g., 'is_diabetic')
+    - filter_value: Optional value to filter for in filter_column
+    """
     if feature1 not in df.columns or feature2 not in df.columns:
         missing = []
         if feature1 not in df.columns:
@@ -172,8 +185,23 @@ async def get_feature_comparison(feature1: str, feature2: str, diabetic_only: bo
             missing.append(feature2)
         raise HTTPException(status_code=404, detail=f"Features not found: {', '.join(missing)}")
     
-    if diabetic_only:
-        filtered_df = df[df['is_diabetic'] == 1]
+    # Apply filtering if filter parameters are provided
+    if filter_column and filter_value:
+        if filter_column not in df.columns:
+            raise HTTPException(status_code=404, detail=f"Filter column '{filter_column}' not found")
+        
+        try:
+            # Try to convert filter_value to appropriate type based on column
+            if pd.api.types.is_numeric_dtype(df[filter_column]):
+                filter_value_converted = float(filter_value)
+            elif pd.api.types.is_bool_dtype(df[filter_column]):
+                filter_value_converted = filter_value.lower() in ['true', '1', 't', 'y', 'yes']
+            else:
+                filter_value_converted = filter_value
+                
+            filtered_df = df[df[filter_column] == filter_value_converted]
+        except ValueError:
+            raise HTTPException(status_code=400, detail=f"Cannot convert filter value '{filter_value}' to the appropriate type for column '{filter_column}'")
     else:
         filtered_df = df
     
@@ -182,7 +210,10 @@ async def get_feature_comparison(feature1: str, feature2: str, diabetic_only: bo
     return {
         "feature1": feature1,
         "feature2": feature2,
-        "diabetic_only": diabetic_only,
+        "filter_applied": {
+            "column": filter_column,
+            "value": filter_value
+        } if filter_column and filter_value else None,
         "data": data[:1000]  # Limit data points returned to prevent large responses
     }
 
