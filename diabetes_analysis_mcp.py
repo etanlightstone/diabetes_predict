@@ -25,27 +25,9 @@ app.add_middleware(
 
 # Load dataset
 try:
-    # In production, specify the actual path to your dataset
-    df = pd.read_csv("diabetes_data.csv")
+    df = pd.read_csv("diabetes_dataset.csv")
 except FileNotFoundError:
-    # For demo purposes, create a sample dataset
-    np.random.seed(42)
-    sample_size = 1000
-    
-    df = pd.DataFrame({
-        'calories_wk': np.random.normal(2200, 500, sample_size),
-        'hrs_exercise_wk': np.random.normal(4, 2, sample_size),
-        'exercise_intensity': np.random.randint(1, 11, sample_size), 
-        'annual_income': np.random.normal(65000, 25000, sample_size),
-        'num_children': np.random.randint(0, 6, sample_size),
-        'weight': np.random.normal(180, 40, sample_size),
-        'is_diabetic': np.random.randint(0, 2, sample_size)
-    })
-
-    # Adjust some correlations to make the data more realistic
-    df.loc[df['weight'] > 220, 'is_diabetic'] = 1
-    df.loc[df['exercise_intensity'] > 7, 'is_diabetic'] = 0
-    df.loc[df['hrs_exercise_wk'] > 8, 'is_diabetic'] = 0
+    raise HTTPException(status_code=500, detail="Dataset file 'diabetes_dataset.csv' not found. Please ensure the file exists in the correct location.")
 
 # Models
 class DatasetInfo(BaseModel):
@@ -232,6 +214,11 @@ async def get_group_analysis(feature: str, group_by: str = "is_diabetic"):
         "analysis": result
     }
 # Add the MCP server to your FastAPI app
+# Connect to this MCP by default with (in pydantic ai for example): 
+# server = MCPServerHTTP(url='http://localhost:8888/mcp')  
+# agent = Agent('openai:gpt-4.1-mini', mcp_servers=[server])  
+#### See chat_agent.py
+
 mcp = FastApiMCP(
     app,  
     name="Diabetes dataset analysis MCP server",  # Name for your MCP server
