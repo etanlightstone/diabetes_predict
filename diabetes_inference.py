@@ -1,6 +1,8 @@
 import torch
 import pandas as pd
 from diabetes_model import DiabetesModel
+import argparse
+import sys
 
 def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_income, num_children, weight):
     """
@@ -47,22 +49,7 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
     
     return {"probability": probability, "is_diabetic":is_diabetic}
 
-if __name__ == "__main__":
-    import argparse
-
-    def main(calories_wk, hrs_exercise_wk, exercise_intensity, annual_income, num_children, weight):
-        result = predict_diabetes(
-            calories_wk=calories_wk,
-            hrs_exercise_wk=hrs_exercise_wk,
-            exercise_intensity=exercise_intensity,
-            annual_income=annual_income,
-            num_children=num_children,
-            weight=weight
-        )
-        
-        print(f"Diabetes probability: {result['probability']:.4f}")
-        print(f"Predicted diabetic: {result['is_diabetic']}")
-
+def main():
     parser = argparse.ArgumentParser(description="Make a diabetes prediction using the trained neural network model.")
     parser.add_argument("--calories_wk", type=float, required=True, help="Weekly calorie consumption")
     parser.add_argument("--hrs_exercise_wk", type=float, required=True, help="Hours of exercise per week")
@@ -72,4 +59,51 @@ if __name__ == "__main__":
     parser.add_argument("--weight", type=float, required=True, help="Weight in pounds")
 
     args = parser.parse_args()
-    main(args.calories_wk, args.hrs_exercise_wk, args.exercise_intensity, args.annual_income, args.num_children, args.weight)
+    
+    result = predict_diabetes(
+        calories_wk=args.calories_wk,
+        hrs_exercise_wk=args.hrs_exercise_wk,
+        exercise_intensity=args.exercise_intensity,
+        annual_income=args.annual_income,
+        num_children=args.num_children,
+        weight=args.weight
+    )
+    
+    print(f"Diabetes probability: {result['probability']:.4f}")
+    print(f"Predicted diabetic: {result['is_diabetic']}")
+
+def alternativeMain():
+    """
+    Alternative main function that takes positional arguments instead of using argparse.
+    Usage: python diabetes_inference.py calories_wk hrs_exercise_wk exercise_intensity annual_income num_children weight
+    """
+    if len(sys.argv) != 7:
+        print("Usage: python diabetes_inference.py calories_wk hrs_exercise_wk exercise_intensity annual_income num_children weight")
+        sys.exit(1)
+        
+    try:
+        calories_wk = float(sys.argv[1])
+        hrs_exercise_wk = float(sys.argv[2])
+        exercise_intensity = float(sys.argv[3])
+        annual_income = float(sys.argv[4])
+        num_children = int(sys.argv[5])
+        weight = float(sys.argv[6])
+    except ValueError:
+        print("Error: All arguments must be numeric. num_children must be an integer.")
+        sys.exit(1)
+    
+    result = predict_diabetes(
+        calories_wk=calories_wk,
+        hrs_exercise_wk=hrs_exercise_wk,
+        exercise_intensity=exercise_intensity,
+        annual_income=annual_income,
+        num_children=num_children,
+        weight=weight
+    )
+    
+    print(f"Diabetes probability: {result['probability']:.4f}")
+    print(f"Predicted diabetic: {result['is_diabetic']}")
+
+if __name__ == "__main__":
+    #main()
+    alternativeMain()

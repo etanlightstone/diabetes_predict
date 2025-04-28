@@ -110,9 +110,12 @@ async def get_correlation_matrix():
     return df.corr().to_dict()
 
 @app.get("/correlation/target", response_model=Dict[str, float])
-async def get_target_correlation():
-    """Get correlation coefficients between each feature and the target variable"""
-    correlations = df.corr()['is_diabetic'].drop('is_diabetic').to_dict()
+async def get_target_correlation(target: str = Query("is_diabetic", description="Target variable to calculate correlations against")):
+    """Get correlation coefficients between each feature and the specified target variable"""
+    if target not in df.columns:
+        raise HTTPException(status_code=404, detail=f"Target variable '{target}' not found")
+    
+    correlations = df.corr()[target].drop(target).to_dict()
     return {k: float(v) for k, v in correlations.items()}
 
 @app.get("/feature/histogram/{feature}")
