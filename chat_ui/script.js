@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayMessage(text, sender) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', `${sender}-message`);
-        messageElement.textContent = text;
+        messageElement.innerHTML = text.replace(/\n/g, '<br>');
         chatBox.appendChild(messageElement);
 
         // Scroll to the bottom of the chat box
