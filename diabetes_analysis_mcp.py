@@ -158,7 +158,7 @@ async def get_feature_boxplot(feature: str):
         "median": float(df[feature].median()),
         "q3": q3,
         "max": float(df[feature].max()),
-        "outliers": outliers[:100] if len(outliers) > 100 else outliers  # Limit number of outliers returned
+        "outliers": outliers[:100] if len(outliers) > 100 else outliers  # Limit number of outliers
     }
 
 @app.get("/feature/comparison")
