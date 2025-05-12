@@ -3,6 +3,7 @@ from pydantic_ai.mcp import MCPServerHTTP
 import asyncio
 
 server = MCPServerHTTP(url='http://localhost:8888/mcp')  
+
 agent = Agent('openai:gpt-4.1-mini', mcp_servers=[server])  
 
 
