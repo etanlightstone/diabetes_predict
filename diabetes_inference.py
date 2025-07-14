@@ -4,6 +4,7 @@ from diabetes_model import DiabetesModel
 import argparse
 import sys
 
+# small change
 def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_income, num_children, weight):
     """
     Make a diabetes prediction using the trained neural network model.
