@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Run History | Domino</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Ant Design CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.5/reset.min.css">
+  <!-- React and ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Day.js for date handling (required by Ant Design DatePicker) -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+  <!-- Ant Design -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.5/antd.min.js"></script>
+  <!-- Highcharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav class="nav-header">
+    <div class="nav-logo">
+      <img src="static/domino-logo.svg" alt="Domino" height="32">
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Job Run History</h1>
+        <p class="page-subtitle" id="project-info">Loading project information...</p>
+      </div>
+      <!-- React-powered Time Period Selector -->
+      <div id="time-period-selector-root"></div>
+    </div>
+
+    <!-- Stats Summary -->
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card total">
+        <div class="stat-label">Total Jobs</div>
+        <div class="stat-value" id="stat-total">-</div>
+      </div>
+      <div class="stat-card succeeded">
+        <div class="stat-label">Succeeded</div>
+        <div class="stat-value" id="stat-succeeded">-</div>
+      </div>
+      <div class="stat-card failed">
+        <div class="stat-label">Failed</div>
+        <div class="stat-value" id="stat-failed">-</div>
+      </div>
+      <div class="stat-card stopped">
+        <div class="stat-label">Stopped</div>
+        <div class="stat-value" id="stat-stopped">-</div>
+      </div>
+      <div class="stat-card running">
+        <div class="stat-label">Running</div>
+        <div class="stat-value" id="stat-running">-</div>
+      </div>
+      <div class="stat-card queued">
+        <div class="stat-label">Queued</div>
+        <div class="stat-value" id="stat-queued">-</div>
+      </div>
+    </div>
+
+    <!-- Chart Card -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Daily Job Runs</h2>
+      </div>
+      <div class="chart-container" id="chart-wrapper">
+        <div class="loading-container" id="loading-state">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Loading job history...</div>
+        </div>
+        <div id="job-history-chart" style="display: none;"></div>
+        <div class="error-container" id="error-state" style="display: none;">
+          <div class="error-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3 class="error-title">Failed to load data</h3>
+          <p class="error-message" id="error-message">Unable to fetch job history. Please try again.</p>
+          <button class="retry-btn" onclick="loadJobHistory()">Retry</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="static/app.js"></script>
+</body>
+</html>
