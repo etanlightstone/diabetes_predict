@@ -29,7 +29,8 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
     #     hidden_dim2=16,
     #     hidden_dim3=8
     # )
-
+    
+    # using this shape instead since its the training script default with no args
     model = DiabetesModel(
         input_features=6,
         hidden_dim1=2,
@@ -37,8 +38,9 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
         hidden_dim3=2
     )
 
-    #model_path='diabetes_model_20250423_105336.pt'
-    model_path='diabetes_model_20260626_181053.pt'
+
+    #if used in other hosting contexts, would be good to use an absolute url path here:
+    model_path='diabetes_model_20260626_201735.pt'
     # Load the trained model weights
     model.load_state_dict(torch.load(model_path))
     
