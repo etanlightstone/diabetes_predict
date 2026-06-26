@@ -29,7 +29,7 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
     #     hidden_dim2=16,
     #     hidden_dim3=8
     # )
-    
+
     # using this shape instead since its the training script default with no args
     model = DiabetesModel(
         input_features=6,
@@ -62,6 +62,9 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
     return {"probability": probability, "is_diabetic":is_diabetic}
 
 def main():
+    print("## Easy example to paste in ##")
+    print("python diabetes_inference.py --calories_wk 4000 --hrs_exercise_wk 2 --exercise_intensity 0.2 --annual_income 60000 --num_children 2 --weight 190")
+    print("## Easy example to paste in ##\n\n")
     parser = argparse.ArgumentParser(description="Make a diabetes prediction using the trained neural network model.")
     parser.add_argument("--calories_wk", type=float, required=True, help="Weekly calorie consumption")
     parser.add_argument("--hrs_exercise_wk", type=float, required=True, help="Hours of exercise per week")
