@@ -23,13 +23,22 @@ def predict_diabetes(calories_wk, hrs_exercise_wk, exercise_intensity, annual_in
         bool: Binary prediction (True for diabetic, False for non-diabetic)
     """
     # Initialize model with the specified parameters
+    # model = DiabetesModel(
+    #     input_features=6,
+    #     hidden_dim1=32,
+    #     hidden_dim2=16,
+    #     hidden_dim3=8
+    # )
+
     model = DiabetesModel(
         input_features=6,
-        hidden_dim1=32,
-        hidden_dim2=16,
-        hidden_dim3=8
+        hidden_dim1=2,
+        hidden_dim2=2,
+        hidden_dim3=2
     )
-    model_path='diabetes_model_20250423_105336.pt'
+
+    #model_path='diabetes_model_20250423_105336.pt'
+    model_path='diabetes_model_20260626_181053.pt'
     # Load the trained model weights
     model.load_state_dict(torch.load(model_path))
     
