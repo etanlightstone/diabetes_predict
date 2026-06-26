@@ -179,7 +179,7 @@ def main():
         print(f"Model saved to {model_path}")
         
         # Log the model
-        mlflow.pytorch.log_model(model, "model")
+        mlflow.pytorch.log_model(model, "model", code_paths=["diabetes_model.py"])
         
         # Also log the saved model file as an artifact
         mlflow.log_artifact(model_path)
